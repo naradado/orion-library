@@ -9,16 +9,20 @@ if(!isset($_SESSION["username"])){
 if(isset($_GET['page']))
 {
 	if($_GET['page']=='add-book'){
+		$page_title='Add Book';
 		$include_page='add_book.php';
 	}
 	else if($_GET['page']=='view-book'){
+		$page_title='View Book';
 		$include_page='view_book.php';
 	}
 	else{
+		$page_title='Dashboard';
 		$include_page='dashboard.php';
 	}
 }
 else{
+	$page_title='Dashboard';
 	$include_page='dashboard.php';
 }
 ?>
@@ -177,7 +181,7 @@ else{
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0"><?php echo $page_title; ?></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -250,7 +254,7 @@ else{
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<!--<script src="dist/js/demo.js"></script>-->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard.js"></script>
 </body>
