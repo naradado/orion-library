@@ -127,11 +127,14 @@ $(document).ready(function(){
 			add:$('#add').val(),
 			tel:$('#tel').val(),
 			email:$('#email').val(),
-			password1:$('#pwd1').val(),
 			password:$('#pwd2').val()
 			},
 			function (data){
 			$('#result').html(data);
+			$('#fname').val("");
+			$('#lname').val("");
+			$('#add').val("");
+			$('#tel').val("");
 			$('#email').val("");
 			});
 	});

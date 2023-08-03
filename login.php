@@ -26,7 +26,7 @@
 
       <form action="index3.html" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" id="email" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,18 +34,13 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" id="pwd" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
-		<div class="row">
-			<div class="col-12">
-			<div id="result"></div>
-			</div>
-		</div>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
@@ -57,7 +52,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="button" id="login_btn" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
@@ -82,21 +77,5 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-<script>
-$(document).ready(function(){
-	$("#login_btn").click(function(){
-		$.post(
-			"actions/member_login.php",
-			{	
-			email:$('#email').val(),
-			password:$('#pwd').val()
-			},
-			function (data){
-			$('#result').html(data);
-			$('#email').val("");
-			});
-	});
-});
-</script>
 </body>
 </html>

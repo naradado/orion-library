@@ -1,27 +1,3 @@
-<?php
-session_start();
-if(!isset($_SESSION["username"])){
-?>
-<script>window.location.replace("login.php");</script>
-<?php	
-}
-
-if(isset($_GET['page']))
-{
-	if($_GET['page']=='add-book'){
-		$include_page='add_book.php';
-	}
-	else if($_GET['page']=='view-book'){
-		$include_page='view_book.php';
-	}
-	else{
-		$include_page='dashboard.php';
-	}
-}
-else{
-	$include_page='dashboard.php';
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,9 +79,9 @@ else{
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header">15 Notifications</span>
           <div class="dropdown-divider"></div>
-          <a href="logout.php" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i>Logout
-            <span class="float-right text-muted text-sm"></span>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
@@ -195,7 +171,6 @@ else{
       <div class="container-fluid">
          <?php
 		 // include page here..
-		 include('pages/'.$include_page);
 		 ?>
 
       </div><!-- /.container-fluid -->
