@@ -1,6 +1,6 @@
 <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+               
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -40,7 +40,14 @@
 					<td><?php echo $row_books['book_price']; ?></td>
 					<td><?php echo $row_books['book_print_date']; ?></td>
 					<td><?php echo $row_books['book_add_date']; ?></td>
-					<td><button class="btn btn-secondary">EDIT</button></td>
+					<td>
+					<?php if(($roll_id==2)OR($roll_id==1)){?>
+					<button class="btn btn-secondary editbookbtn" id="<?php echo $row_books['book_id']; ?>">EDIT</button>
+					<?php } ?>
+					<?php if($roll_id==1){?>
+					<button class="btn btn-warning delbookbtn" data-toggle="modal" data-target="#modal-default" id="<?php echo $row_books['book_id']; ?>">DELETE</button>
+					<?php } ?>
+					</td>
                   </tr>
 				  <?php } ?>
                  
@@ -61,6 +68,55 @@
                   </tfoot>
                 </table>
               </div>
+			  <div id="result"></div>
+			  
+			   <div class="modal fade" id="modal-default">
+				<div class="modal-dialog">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h4 class="modal-title">Delete Book</h4>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+					  <p>Are you sure want to delete this Book?</p>
+					   <button type="button" class="btn btn-primary" id="yesbtn">Yes</button>
+					   <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+					  
+					</div>
+				   
+				  </div>
+				  <!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			  </div>
               <!-- /.card-body -->
+			  
+			  
             </div>
 <script src="plugins/jquery/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$(".editbookbtn").click(function(event){
+		var book_id=this.id;
+		window.location.href = "index.php?page=update-book&id="+book_id;
+	});
+	
+	$(".delbookbtn").click(function(event){
+		var book_id=this.id;
+		$("#yesbtn").click(function(event){
+			$.post(
+			"actions/delete_book.php",
+			{
+			book_id:book_id,
+			},
+			function (data){
+			$('#result').html(data);
+			window.location.href = "index.php?page=view-book";
+			});
+		});
+	});
+});
+</script>
+

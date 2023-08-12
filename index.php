@@ -5,6 +5,14 @@ if(!isset($_SESSION["username"])){
 <script>window.location.replace("login.php");</script>
 <?php	
 }
+else{
+	$user_email=$_SESSION["username"];
+	include('dbconnection.php');
+	$sql_get_rolls="SELECT * FROM tbl_user WHERE user_email='$user_email'";
+	$res_get_rolls=mysqli_query($conn,$sql_get_rolls);
+	$row_get_rolls=mysqli_fetch_array($res_get_rolls);
+	$roll_id=$row_get_rolls['user_roll_id'];
+}
 
 if(isset($_GET['page']))
 {
@@ -15,6 +23,10 @@ if(isset($_GET['page']))
 	else if($_GET['page']=='view-book'){
 		$page_title='View Book';
 		$include_page='view_book.php';
+	}
+	else if($_GET['page']=='update-book'){
+		$page_title='Update Book';
+		$include_page='update_book.php';
 	}
 	else{
 		$page_title='Dashboard';

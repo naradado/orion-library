@@ -21,12 +21,13 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+			<?php if(($roll_id==2)OR($roll_id==1)){?>
               <li class="nav-item">
                 <a href="index.php?page=add-book" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Book</p>
                 </a>
-              </li>
+			</li><?php } ?>
               <li class="nav-item">
                 <a href="index.php?page=view-book" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
