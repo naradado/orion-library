@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2023 at 08:15 PM
+-- Generation Time: Aug 12, 2023 at 06:27 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -44,10 +44,8 @@ CREATE TABLE `tbl_book` (
 --
 
 INSERT INTO `tbl_book` (`book_id`, `book_name`, `book_isbn`, `book_author`, `book_publisher`, `book_cat`, `book_price`, `book_print_date`, `book_add_date`) VALUES
-(1, 'A', '', 1, 4, 3, 0, '0000-00-00', '0000-00-00'),
-(2, 'Advanced Mathematics', '', 2, 4, 2, 9000, '2021-09-15', '2023-08-03'),
-(3, 'Physics for Kids', '45645656', 3, 5, 3, 1200, '2022-07-14', '2023-08-02'),
-(4, 'MalalaSekara Sinhala-English Dictionary', '456565465', 2, 4, 4, 3000, '2023-06-13', '2023-08-01');
+(4, 'MalalaSekara Sinhala-English Dictionary', '123456', 1, 5, 4, 3000, '2023-06-13', '2023-08-01'),
+(6, 'New Book', '4564564565', 2, 4, 5, 500, '2023-04-26', '2023-08-11');
 
 -- --------------------------------------------------------
 
@@ -100,7 +98,8 @@ INSERT INTO `tbl_user` (`user_id`, `user_fname`, `user_lname`, `user_address`, `
 (2, 'Kamala', 'gfsg', 'Colombo', '1234567890', 'abc@abc.com', '51eac6b471a284d3341d8c0c63d0f1a286262a18', 3, 0),
 (3, 'Saman', 'Alwis', 'Matara', '9876543210', 'saman@abc.com', '6367c48dd193d56ea7b0baad25b19455e529f5ee', 3, 0),
 (4, 'Chathura', 'perera', 'Piliyandala', '123', 'naradado@gmail.com', '6367c48dd193d56ea7b0baad25b19455e529f5ee', 3, 1),
-(5, 'abc', 'bcd', 'Matara', '123', 'abc@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 3, 0);
+(5, 'abc', 'bcd', 'Matara', '123', 'abc@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 2, 1),
+(6, 'Narada', 'Opanayake', 'Horana', '0772287488', 'narada@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -158,7 +157,7 @@ ALTER TABLE `user_roll`
 -- AUTO_INCREMENT for table `tbl_book`
 --
 ALTER TABLE `tbl_book`
-  MODIFY `book_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `book_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_bookcat`
@@ -170,7 +169,7 @@ ALTER TABLE `tbl_bookcat`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user_roll`
