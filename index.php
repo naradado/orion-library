@@ -12,6 +12,8 @@ else{
 	$res_get_rolls=mysqli_query($conn,$sql_get_rolls);
 	$row_get_rolls=mysqli_fetch_array($res_get_rolls);
 	$roll_id=$row_get_rolls['user_roll_id'];
+	$fname=$row_get_rolls['user_fname'];
+	$lname=$row_get_rolls['user_lname'];
 }
 
 if(isset($_GET['page']))
@@ -27,6 +29,10 @@ if(isset($_GET['page']))
 	else if($_GET['page']=='update-book'){
 		$page_title='Update Book';
 		$include_page='update_book.php';
+	}
+	else if($_GET['page']=='change-pw'){
+		$page_title='Change Your Password';
+		$include_page='change-pw.php';
 	}
 	else{
 		$page_title='Dashboard';
@@ -113,28 +119,18 @@ else{
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <i class="fas fa-cog"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
+		   <div class="dropdown-divider"></div>
+          <a href="index.php?page=change-pw" class="dropdown-item">
+            <i class="fas fa-user-cog mr-2"></i> Profile
+          </a>
           <div class="dropdown-divider"></div>
           <a href="logout.php" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i>Logout
+            <i class="fas fa-power-off mr-2"></i>Logout
             <span class="float-right text-muted text-sm"></span>
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
       <li class="nav-item">
@@ -152,7 +148,7 @@ else{
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Orion Library</span>
     </a>
 
     <!-- Sidebar -->
@@ -163,7 +159,7 @@ else{
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"><?php echo $fname." ".$lname ?></a>
         </div>
       </div>
 
